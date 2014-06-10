@@ -1,0 +1,42 @@
+<li class="tooltip-link" data-toggle="tooltip" data-placement="bottom" title="Bądź na bieżąco!">
+	<a href="index.html">
+        <!--<i class="glyphicon glyphicon-fire"></i>-->
+        Aktualności
+    </a>
+</li>
+<li class="tooltip-link" data-toggle="tooltip" data-placement="bottom" title="Zapisz się na zajęcia!">
+	<a href="grafik.html">
+        <!--<i class="glyphicon glyphicon-calendar"></i>-->
+        Grafik
+    </a>
+</li>
+<li class="tooltip-link" data-toggle="tooltip" data-placement="bottom" title="Poznaj naszych instruktorów!">
+    <a href="instruktorzy.html">Instruktorzy</a>
+</li>
+<li class="tooltip-link" data-toggle="tooltip" data-placement="bottom" title="Zobacz fotorelacje z wydarzeń!">
+    <a href="https://www.facebook.com/setenta.taniec/photos_albums" target="_blank">Galeria</a>
+</li>
+<li class="tooltip-link" data-toggle="tooltip" data-placement="bottom" title="Wybierz odpowiedni pakiet dla siebie!">
+	<a href="cennik.html">Cennik</a>
+</li>
+<li class="tooltip-link" data-toggle="tooltip" data-placement="bottom" title="Rozkręcasz imprezę?">
+	<a href="zespol.html">Pokazy tańca</a>
+</li>
+<li class="tooltip-link" data-toggle="tooltip" data-placement="bottom" title="Jak do nas trafić?">
+	<a href="kontakt.html">Kontakt</a>
+</li>
+
+<script type="text/javascript">
+	var file = window.location.href.substr(window.location.href.lastIndexOf("/")+1);
+	$(document).ready(function(){
+		$('.nav a').each(function(index, element) {
+            var elHref = $(element).attr("href");
+    		if(elHref == file || elHref == 'index.html' && file == '')
+    		{
+        		$(element).parent('li').addClass('active');
+        		return false;
+    		}
+		});
+        $(".tooltip-link").tooltip();
+	});
+</script>

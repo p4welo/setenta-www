@@ -1,0 +1,72 @@
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+	    <div class="modal-content">
+			<form id="form-email" class="form-horizontal" role="form" action="http://vs8123.gensys.pl:8080/setenta/email" method="post">
+		      	<div class="modal-header">
+		        	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		        	<h4 class="modal-title" id="myModalLabel">Wyślij wiadomość</h4>
+		      	</div>
+		      
+				<div class="modal-body">
+					<div class="col-sm-12">
+						<p align="right">Prosimy o pozostawienie <strong>danych kontaktowych</strong> do siebie<br />- ułatwi to późniejszy kontakt.</p>
+					</div>
+					
+					<div class="form-group">
+		    			<label for="inputContent" class="col-sm-4 control-label">Wiadomość: </label>
+		    			<div class="col-sm-8">
+		      				<textarea style="overflow:auto;resize:none" id="inputContent" name="content" class="form-control" rows="3" placeholder="Treść wiadomości"></textarea>
+		    			</div>
+		  			</div>
+		  			
+		  			<div class="form-group">
+		    			<label for="inputEmail" class="col-sm-4 control-label">Email: </label>
+		    			<div class="col-sm-8">
+		      				<input type="text" class="form-control" id="inputEmail" name="email" placeholder="Adres email">
+		    			</div>
+		  			</div>
+		  			
+		  			<div class="form-group">
+		    			<label for="inputPhone" class="col-sm-4 control-label">Telefon: </label>
+		    			<div class="col-sm-8">
+		      				<input type="text" class="form-control" id="inputPhone" name="phone" placeholder="Numer telefonu">
+		    			</div>
+		  			</div>
+
+		  		</div>
+			      	
+		      	<div class="modal-footer">
+		        	<button id="cancel" type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button>
+		        	<button type="submit" class="btn btn-setenta">
+		        		<i class="glyphicon glyphicon-share-alt"></i> Wyślij</button>
+		      	</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<script>
+	$( "#form-email" ).submit(function( event ) {
+		event.preventDefault();
+		
+		var url1 = "http://vs8123.gensys.pl/server/api/email";
+		var url2 = "http://localhost:8090/setenta/email";
+
+//        $.ajax({
+//            url: "http://query.yahooapis.com/v1/public/yql",
+//            jsonp: "callback",
+//            dataType: "jsonp",
+//            data: {
+//                q: "select title,abstract,url from search.news where query=\"cat\"",
+//                format: "json"
+//            },
+//            success: function( response ) {
+//                console.log( response ); // server response
+//            }
+//        });
+
+        var jqxhr = $.post(url1, {phone: $("#inputPhone").val(), email: $("#inputEmail").val(), content: $("#inputContent").val() });
+		$.pnotify({text: 'Wiadomość została wysłana', title: 'Dziękujemy!', type: 'success', addclass: 'stack-bottomright'});
+		$("#cancel").click();
+	});
+</script>
