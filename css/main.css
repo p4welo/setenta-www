@@ -758,3 +758,7 @@ html, body {
 .zapisy-table td {
     font-size: 12px !important;
 }
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
