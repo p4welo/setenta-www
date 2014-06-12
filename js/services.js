@@ -6,8 +6,8 @@ function getUrl(uri) {
 
 //var SERVER_URL = "http://localhost:8086/api/public";
 //var SERVER_URL = "http://vs8123.gensys.pl/server/api/public";
-//var SERVER_URL = "http://91.218.78.136/ap/public";
-var SERVER_URL = "http://5.133.13.149/server/api/public";
+var SERVER_URL = "http://91.218.78.136/ap/public";
+//var SERVER_URL = "http://5.133.13.149/server/api/public";
 var CLASS_LIST_KEY = "classes.json";
 var NEWS_LIST_KEY = "news/list.json";
 var FUTURE_CLASS_LIST_KEY = "classes/future.json";
