@@ -1,1 +1,1 @@
-Setenta-WWW
+Setenta static website
