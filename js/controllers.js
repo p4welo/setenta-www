@@ -32,8 +32,8 @@ angular.module('SetentaApp.controllers', [])
             });
     })
 
-    .controller('ScheduleCtrl', function ($scope, Days, $http) {
-        $scope.days = Days;
+    .controller('ScheduleCtrl', function ($scope, $http, classService) {
+        $scope.days = classService.resolveDays();
         $scope.loading = true;
         $scope.error = false;
         var classesUrl = getUrl(CLASS_LIST_KEY);
@@ -65,55 +65,6 @@ angular.module('SetentaApp.controllers', [])
             });
         };
         $scope.opis = function (c) {
-            var result = "<h4>" + c.style.name + "</h4>" +
-                "<table>" +
-                "<tr>" +
-                "<td><strong>Instruktor:&nbsp;&nbsp;&nbsp;</strong></td><td>"
-                + c.instructor.firstName + " " + c.instructor.lastName + "</td>" +
-                "</tr>";
-            if (c.level != "") {
-                result += "<tr>" +
-                    "<td><strong>Poziom: </strong></td><td>";
-                if (c.level == 'BEGINNER') {
-                    result += "podstawowy";
-                }
-                else if (c.level == 'INTERMEDIATE') {
-                    result += "średniozaawansowany";
-                }
-                else {
-                    result += "zaawansowany";
-                }
-                result += "</td>" +
-                    "</tr>";
-            }
-
-            result += "<tr>" +
-                "<td><strong>Sala: </strong></td><td>";
-            if (c.room.name == 'd') {
-                result += "duża";
-            }
-            else {
-                result += "mała";
-            }
-            result += "</td>" +
-                "</tr>";
-
-            result += "</table>";
-            if (c.canRegister) {
-                result += "<div class='alert-danger alert-popover'>Zbieramy grupę - zapisz się już dziś!</div>"
-            }
-            if (c.canJoin) {
-                result += "<div class='alert-danger alert-popover'>Wolne miejsca - dołącz do grupy!</div>"
-            }
-
-            return result;
+            return classService.resolveDescription(c);
         }
-    })
-
-    .controller('P1Ctrl', function ($scope, $http) {
-
-    })
-
-    .controller('P2Ctrl', function ($scope, $http) {
-
     });
