@@ -95,7 +95,7 @@ angular.module('SetentaApp.services', ['ngResource'])
 
     .factory('newsFactory', function ($resource) {
 
-        var NEWS_LIST_KEY = "news.php";
+        var NEWS_LIST_KEY = "dao/news.php";
         var GET_NEWS_KEY = getPublicUrl("/news/:sid");
 
         return $resource(null, null, {
