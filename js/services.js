@@ -1,20 +1,9 @@
-'use strict';
-
-function getUrl(uri) {
-    return SERVER_URL + "/" + uri + "?" + JSONP_SUFFIX;
-}
-
-//var SERVER_URL = "http://91.218.78.136:81";
-var SERVER_URL = "http://91.218.78.136/ap/public";
-
-//var CLASS_LIST_KEY = "index.php";
 var CLASS_LIST_KEY = "classes.json";
 var NEWS_LIST_KEY = "news/list.json";
 var FUTURE_CLASS_LIST_KEY = "classes/future.json";
 var CATEGORY_LIST_KEY = "categories.json";
-var JSONP_SUFFIX = "callback=JSON_CALLBACK";
 
-angular.module('SetentaApp.services', [])
+angular.module('SetentaApp.services', ['ngResource'])
 
     .service('classService', function () {
 
@@ -102,4 +91,22 @@ angular.module('SetentaApp.services', [])
                 }
             ];
         }
+    })
+
+    .factory('newsFactory', function ($resource) {
+
+        var NEWS_LIST_KEY = "news.php";
+        var GET_NEWS_KEY = getPublicUrl("/news/:sid");
+
+        return $resource(null, null, {
+            find: {
+                url: NEWS_LIST_KEY,
+                method: 'GET',
+                isArray: true
+            },
+            get: {
+                url: GET_NEWS_KEY,
+                method: 'GET'
+            }
+        })
     });

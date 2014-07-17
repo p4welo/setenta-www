@@ -1,35 +1,37 @@
-'use strict';
-
-/* Controllers */
 angular.module('SetentaApp.controllers', [])
 
-    .controller('IndexCtrl', function ($scope, $http) {
+    .controller('IndexCtrl', function ($scope, $http, newsFactory) {
         var newsUrl = getUrl(NEWS_LIST_KEY);
         $scope.loadingNews = true;
         $scope.loadingClasses = true;
+        $scope.loading = true;
+        $scope.news = newsFactory.find(function () {
 
-        $http.jsonp(newsUrl)
-            .success(function (data) {
-                var classesUrl = getUrl(FUTURE_CLASS_LIST_KEY);
-                $scope.news = data;
-                $scope.loadingNews = false;
-                $http.jsonp(classesUrl)
-                    .success(function (data) {
-                        $scope.classes = data;
-                        $scope.error = false;
-                        $scope.loadingClasses = false;
-                    })
-                    .error(function () {
-                        $scope.error = true;
-                        $scope.loadingClasses = false;
-                    });
-                $scope.error = false;
-            })
-            .error(function () {
-                $scope.error = true;
-                $scope.loadingNews = false;
-                $scope.loadingClasses = false;
-            });
+            $scope.loadingNews = false;
+        });
+
+//        $http.jsonp(newsUrl)
+//            .success(function (data) {
+//                var classesUrl = getUrl(FUTURE_CLASS_LIST_KEY);
+//                $scope.news = data;
+//                $scope.loadingNews = false;
+//                $http.jsonp(classesUrl)
+//                    .success(function (data) {
+//                        $scope.classes = data;
+//                        $scope.error = false;
+//                        $scope.loadingClasses = false;
+//                    })
+//                    .error(function () {
+//                        $scope.error = true;
+//                        $scope.loadingClasses = false;
+//                    });
+//                $scope.error = false;
+//            })
+//            .error(function () {
+//                $scope.error = true;
+//                $scope.loadingNews = false;
+//                $scope.loadingClasses = false;
+//            });
     })
 
     .controller('ScheduleCtrl', function ($scope, $http, classService) {
