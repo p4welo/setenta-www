@@ -81,12 +81,12 @@
                             <legend>
                                 <h4>
                                     {{new.title | uppercase}}
-                                    <small class="pull-right">{{new.createdAt}}</small>
+                                    <small class="pull-right">{{new.created_at}}</small>
                                 </h4>
                             </legend>
                             <div class="media">
                                     <span ng-class-odd="'thumbnail pull-right'" ng-class-even="'thumbnail pull-left'">
-                                        <img class="media-object" src="{{new.imageSrc}}" alt="{{new.imageAlt}}"/>
+                                        <img class="media-object" src="{{new.image_src}}" alt="{{new.image_alt}}"/>
                                     </span>
 
                                 <div class="media-body" ng-bind-html="new.content"></div>
