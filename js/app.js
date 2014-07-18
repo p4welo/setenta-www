@@ -7,7 +7,3 @@ angular.module('SetentaApp', [
     'SetentaApp.directives',
     'SetentaApp.controllers'
 ]);
-
-//angular.module('SetentaApp.services', []);
-//angular.module('SetentaApp.controllers', []);
-angular.module('SetentaApp.directives', []);
