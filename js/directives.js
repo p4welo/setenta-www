@@ -1,4 +1,4 @@
-angular.module('SetentaApp.directives')
+angular.module('SetentaApp.directives', [])
 
     .directive('repeatDone', function () {
         return function (scope, element, attrs) {
