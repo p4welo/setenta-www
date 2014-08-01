@@ -6,6 +6,7 @@
         "angular": "latest",
         "angular-sanitize": "latest",
         "angular-resource": "latest",
+        "angular-animate": "latest",
         "angular-ui-router": "latest",
         "requirejs": "latest",
         "bootstrap": "latest",

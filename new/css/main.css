@@ -77,6 +77,10 @@ header .navbar-brand {
     height: 122px;
 }
 
+.jumbotron {
+    margin-bottom: 100px;
+}
+
 .team-header {
     height: 20px !important;
     padding-bottom: 30px;
@@ -513,6 +517,12 @@ dl.emphasize {
 
 .icon-toolbar {
     padding-bottom: 20px;
+    margin-top: 15px
+}
+
+.icon-row {
+    margin-top: 20px;
+    margin-bottom: -20px
 }
 
 .icon-toolbar img {
@@ -770,12 +780,19 @@ html, body {
 }
 
 #main-menu a:hover {
+     margin-top: -8px;
+ }
 
-    margin-top: -8px;
+#main-menu li.active a:hover {
+    margin-top: 0px;
+}
+
+#main-menu li.active,
+#main-menu li:hover {
+    border-top: 4px solid #E03B86;
 }
 
 #main-menu li:hover {
-    border-top: 4px solid #E03B86;
     cursor: pointer;
 }
 
@@ -786,4 +803,53 @@ html, body {
 .copyright-right {
     text-align: right;
     padding-right: 20px
+}
+
+.page        {
+    width:100%;
+    position: absolute;
+}
+
+.ng-enter 			{ animation: scaleUp 0.5s both ease-in; z-index: 1000; }
+/*.ng-leave 			{ animation: slideOutLeft 0.5s both ease-in; z-index: 9999; }*/
+
+/* ANIMATIONS
+============================================================================= */
+
+/* leaving animations ----------------------------------------- */
+/* rotate and fall */
+@keyframes rotateFall {
+    0% 		{ transform: rotateZ(0deg); }
+    20% 	{ transform: rotateZ(10deg); animation-timing-function: ease-out; }
+    40% 	{ transform: rotateZ(17deg); }
+    60% 	{ transform: rotateZ(16deg); }
+    100% 	{ transform: translateY(100%) rotateZ(17deg); }
+}
+
+/* slide in from the bottom */
+@keyframes slideOutLeft {
+    to 		{ transform: translateX(-100%); }
+}
+
+/* rotate out newspaper */
+@keyframes rotateOutNewspaper {
+    to 		{ transform: translateZ(-3000px) rotateZ(360deg); opacity: 0; }
+}
+
+/* entering animations --------------------------------------- */
+/* scale up */
+@keyframes scaleUp {
+    from 	{ opacity: 0.3; -webkit-transform: scale(0.8); }
+}
+
+/* slide in from the right */
+@keyframes slideInRight {
+    from 	{ transform:translateX(100%); }
+    to 		{ transform: translateX(0); }
+}
+
+/* slide in from the bottom */
+@keyframes slideInUp {
+    from 	{ transform:translateY(100%); }
+    to 		{ transform: translateY(0); }
 }

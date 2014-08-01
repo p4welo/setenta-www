@@ -3,10 +3,17 @@
 var SERVER_URL = "http://91.218.78.136/ap/public";
 
 angular.module('setenta-app', [
+    'ngAnimate',
     'ui.router',
     'setenta-app.services',
     'setenta-app.controllers'
 ])
+    .run(['$rootScope', '$state', '$stateParams',
+        function ($rootScope, $state, $stateParams) {
+            $rootScope.$state = $state;
+            $rootScope.$stateParams = $stateParams;
+        }])
+
     .config(function ($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise("/aktualnosci");
 
