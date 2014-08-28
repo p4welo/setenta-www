@@ -10,6 +10,26 @@
 <div class="body-cover">
     <div class="container main-content staff-content">
         <div class="body-content">
+            <div class="col-xs-7">
+                <div ng-repeat="new in news | orderBy: startTime" class="repeat-item">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <legend>
+                                <h4>
+                                    {{new.title | uppercase}}
+                                    <small class="pull-right">{{new.createdAt}}</small>
+                                </h4>
+                            </legend>
+                            <div class="media">
+                                <span class="thumbnail">
+                                    <img class="media-object" src="{{new.imageSrc}}" alt="{{new.imageAlt}}"/>
+                                </span>
+                                <div class="media-body" ng-bind-html="new.content"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

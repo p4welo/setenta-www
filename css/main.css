@@ -76,45 +76,6 @@ a {
     margin-bottom: 20px;
 }
 
-.main-content .body-content .media-object {
-    width: 180px;
-    cursor: pointer;
-    -webkit-transition: all 1s ease-in-out;
-    transition: all 1s ease-in-out;
-}
-
-@media (min-width: 550px) {
-    .main-content .body-content .media-object {
-        width: 250px;
-    }
-}
-
-@media (min-width: 768px) {
-    .img-header {
-        height: 153px;
-    }
-}
-
-@media (min-width: 992px) {
-    .img-header {
-        height: 198px;
-    }
-
-    .main-content .body-content .media-object {
-        width: 198px;
-    }
-}
-
-@media (min-width: 1200px) {
-    .img-header {
-        height: 250px;
-    }
-
-    .main-content .body-content .media-object {
-        width: 250px;
-    }
-}
-
 .img-header img {
     width: 25%;
 }
@@ -216,6 +177,16 @@ legend small {
 .body-content table th {
     width: 134px;
     text-align: center;
+}
+
+.thumbnail {
+    max-height: 150px;
+    padding: 0;
+    overflow: hidden;
+}
+
+.thumbnail img {
+    width: 100%;
 }
 
 .course-label {

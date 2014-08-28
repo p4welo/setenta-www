@@ -4,6 +4,7 @@ var SERVER_URL = "http://91.218.78.136/ap/public";
 
 angular.module('setenta-app', [
     'ngAnimate',
+    'ngSanitize',
     'ui.router',
     'setenta-app.loadingBar',
     'setenta-app.services',
@@ -54,5 +55,5 @@ angular.module('setenta-app', [
             });
 });
 
-angular.module('setenta-app.services', []);
+angular.module('setenta-app.services', ['ngResource']);
 angular.module('setenta-app.controllers', []);
