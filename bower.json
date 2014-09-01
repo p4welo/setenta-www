@@ -10,7 +10,7 @@
         "angular-ui-router": "latest",
         "bootstrap": "latest",
         "font-awesome": "latest",
-        "pnotify": "latest",
+        "pnotify": "1.2.0",
         "animate.css": "latest"
     }
 }

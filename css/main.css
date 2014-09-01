@@ -45,7 +45,7 @@ a {
 }
 
 .img-header {
-    background-color: #e5e5e5;
+    background-color: #8513A5;
     /*background-color: #4B0362;*/
     padding-top: 0;
     margin-top: 133px;
@@ -57,9 +57,20 @@ a {
     height: 122px;
 }
 
-.jumbotron {
-    margin-bottom: 100px;
+.img-header img {
+    width: 25%;
 }
+
+.img-header .container {
+    min-width: 500px;
+}
+
+@media (min-width: 768px) {
+    .jumbotron {
+        margin-bottom: 100px;
+    }
+}
+
 
 .team-header {
     height: 20px !important;
@@ -76,9 +87,7 @@ a {
     margin-bottom: 20px;
 }
 
-.img-header img {
-    width: 25%;
-}
+
 
 .footer {
     height: 70px;
@@ -179,7 +188,7 @@ legend small {
     text-align: center;
 }
 
-.thumbnail {
+.news-content .thumbnail {
     max-height: 150px;
     padding: 0;
     overflow: hidden;
@@ -375,9 +384,13 @@ table.table-schedule th {
     z-index: 2;
 }
 
-.team_member > h4,
-.team_member > h6 {
+.team_member h4,
+.team_member h6 {
     padding: 0 20px;
+}
+
+.team_member div {
+    height: 30px;
 }
 
 .team_member img {
@@ -580,7 +593,7 @@ html, body {
     height: 50px;
     width: 100%;
     padding: 10px 0 !important;
-    z-index: 9999;
+    z-index: 1040;
 }
 
 .icon-toolbar img {
@@ -713,4 +726,16 @@ a {
 #main-menu li.active,
 #main-menu li:hover {
     border-top: 4px solid #d31266;
+}
+
+.news-content > div {
+    min-width: 450px;
+}
+
+/*.news-content {*/
+    /*padding-top: 150px;*/
+/*}*/
+
+.cennik-content .dl-horizontal.emphasize {
+    margin-top: 20px;
 }

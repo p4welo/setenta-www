@@ -24,13 +24,13 @@
 <body ng-app="setenta-app">
 <section id="top-header">
     <div class="container">
-        <div class="col-sm-9 col-xs-6">
+        <div class="col-sm-8 col-xs-5">
             <p>
                 <i class="fa fa-phone"></i>
                 695 081 437
             </p>
         </div>
-        <div class="col-sm-3 col-xs-6 pull-right icon-toolbar">
+        <div class="col-sm-4 col-xs-7 pull-right icon-toolbar">
             <div class="animated fadeInDown animation-delay-1">
                 <a class="" href="https://www.facebook.com/setenta.taniec"
                    target="_blank">
@@ -76,7 +76,7 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul id="main-menu" class="nav navbar-nav navbar-right">
-                <li class="tooltip-link" title="Bądź na bieżąco!" ng-class="{active: $state.includes('aktualnosci')}">
+                <li class="tooltip-link" title="Bądź na bieżąco!" ui-sref-active="active">
                     <a ui-sref="aktualnosci">
                         Aktualności
                     </a>
@@ -155,9 +155,11 @@
 <script src="lib/loading-bar/loading-bar.js"></script>
 
 <script src="js/app.js"></script>
-<!--<script src="js/gui.js"></script>-->
 <script src="js/utils.js"></script>
-<script src="partials/news/js/news-service.js"></script>
+
+<script src="js/service/news-service.js"></script>
+<script src="js/service/class-service.js"></script>
+
 <script src="partials/news/js/news-controller.js"></script>
 
 </body>
