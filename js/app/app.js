@@ -26,7 +26,8 @@ angular.module('setenta-app', [
             })
             .state('grafik', {
                 url: "/grafik",
-                templateUrl: "partials/schedule/schedule.html"
+                templateUrl: "partials/schedule/schedule.html",
+                controller: "schedule-ctrl"
             })
             .state('cennik', {
                 url: "/cennik",

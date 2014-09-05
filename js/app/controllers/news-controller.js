@@ -1,4 +1,4 @@
-angular.module('setenta-app.controllers', [])
+angular.module('setenta-app.controllers')
 
     .controller('news-ctrl', function ($scope, newsFactory, classFactory) {
 
