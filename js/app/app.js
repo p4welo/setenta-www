@@ -47,7 +47,8 @@ angular.module('setenta-app', [
             })
             .state('kontakt', {
                 url: "/kontakt",
-                templateUrl: "partials/contact/contact.html"
+                templateUrl: "partials/contact/contact.html",
+                controller: 'contact-ctrl'
             });
 });
 

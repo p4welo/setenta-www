@@ -1,4 +1,4 @@
-$(document).ready(function mapaStart() {
+function mapaStart() {
     var wspolrzedne = new google.maps.LatLng(51.1172973, 17.0430937);
     var opcjeMapy = {
         zoom: 17,
@@ -16,7 +16,6 @@ $(document).ready(function mapaStart() {
     };
     var mapa = new google.maps.Map(document.getElementById("mapka"), opcjeMapy);
     var rozmiar = new google.maps.Size(60, 25);
-    var rozmiar_cien = new google.maps.Size(59, 32);
     var punkt_startowy = new google.maps.Point(0, 0);
     var punkt_zaczepienia = new google.maps.Point(50, 10);
     var opcjeMarkera =
@@ -26,4 +25,4 @@ $(document).ready(function mapaStart() {
         icon: new google.maps.MarkerImage("img/sys/marker-logo.png", rozmiar, punkt_startowy, punkt_zaczepienia)
     }
     var marker = new google.maps.Marker(opcjeMarkera);
-});
+};
