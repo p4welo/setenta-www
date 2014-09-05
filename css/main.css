@@ -146,12 +146,6 @@ a {
     margin-bottom: 20px;
 }
 
-.panel-default > .panel-heading {
-    -webkit-transition: all 0.2s ease-in-out;
-    transition: all 0.2s ease-in-out;
-    background-color: #4B0362;
-}
-
 legend small {
     padding-top: 5px;
 }
@@ -769,4 +763,17 @@ a {
     margin-top: 100px;
     height: 400px;
     background: white;
+}
+
+.fc-event {
+    border-radius: 0;
+    background-color: #0D9696;
+}
+
+.fc-event:hover {
+    background-color: #237171;
+}
+
+.fc-content {
+    text-align: center;
 }

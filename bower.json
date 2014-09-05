@@ -10,6 +10,8 @@
         "angular-ui-router": "latest",
         "bootstrap": "latest",
         "font-awesome": "latest",
-        "animate.css": "latest"
+        "animate.css": "latest",
+        "moment": "latest",
+        "fullcalendar": "2.1.1"
     }
 }
