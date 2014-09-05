@@ -74,7 +74,7 @@ a {
 
 .team-header {
     height: 20px !important;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
     margin-bottom: 0 !important;
 }
 
@@ -86,8 +86,6 @@ a {
 .staff-content .row {
     margin-bottom: 20px;
 }
-
-
 
 .footer {
     height: 70px;
@@ -391,7 +389,7 @@ table.table-schedule th {
 }
 
 .team_member div {
-    height: 30px;
+    height: 50px;
 }
 
 .team_member img {

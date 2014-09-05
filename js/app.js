@@ -10,11 +10,6 @@ angular.module('setenta-app', [
     'setenta-app.services',
     'setenta-app.controllers'
 ])
-//    .run(['$rootScope', '$state', '$stateParams',
-//        function ($rootScope, $state, $stateParams) {
-//            $rootScope.$state = $state;
-//            $rootScope.$stateParams = $stateParams;
-//        }])
 
     .config(function ($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise("/aktualnosci");
