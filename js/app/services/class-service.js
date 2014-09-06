@@ -142,7 +142,7 @@ angular.module('setenta-app.services')
                         ap += "<em>" + event.level + "</em>";
                     }
                     element.find('.fc-title').append(ap);
-                    element.tooltip({title: "DUPA"});
+//                    element.tooltip({title: "DUPA"});
                 }
             }
         }
