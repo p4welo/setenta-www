@@ -784,11 +784,13 @@ a {
     opacity: 0;
 }
 
-.fc-title {
-}
-
 .badge-danger {
     background-color: #d31266;
+    margin-top: 5px;
+}
+
+.badge-join {
+    background-color: #8CE413;
 }
 
 #loading-bar-spinner {

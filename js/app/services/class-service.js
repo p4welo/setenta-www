@@ -85,7 +85,7 @@ angular.module('setenta-app.services')
                 return "zaawansowany";
             }
             else if (level == "OPEN") {
-                return "open";
+                return "gr. otwarta";
             }
             else {
                 return "";
@@ -142,6 +142,7 @@ angular.module('setenta-app.services')
                         ap += "<em>" + event.level + "</em>";
                     }
                     element.find('.fc-title').append(ap);
+                    element.tooltip({title: "DUPA"});
                 }
             }
         }
