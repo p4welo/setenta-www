@@ -767,7 +767,9 @@ a {
 
 .fc-event {
     border-radius: 0;
+    border: 1px solid #ffffff;
     background-color: #0D9696;
+    padding-top: 5px;
 }
 
 .fc-event:hover {
@@ -780,6 +782,13 @@ a {
 
 .fc-time-grid-event .fc-bg {
     opacity: 0;
+}
+
+.fc-title {
+}
+
+.badge-danger {
+    background-color: #d31266;
 }
 
 #loading-bar-spinner {

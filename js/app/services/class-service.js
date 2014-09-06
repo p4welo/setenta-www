@@ -74,6 +74,24 @@ angular.module('setenta-app.services')
             }
         }
 
+        var getLevelDescription = function (level) {
+            if (level == "BEGINNER") {
+                return "początkujący";
+            }
+            else if (level == "INTERMEDIATE") {
+                return "średniozaawansowany";
+            }
+            else if (level == "ADVANCED") {
+                return "zaawansowany";
+            }
+            else if (level == "OPEN") {
+                return "open";
+            }
+            else {
+                return "";
+            }
+        }
+
         this.getScheduleOptionsByRoom = function (roomName) {
             return {
                 lang: "pl",
@@ -99,19 +117,31 @@ angular.module('setenta-app.services')
                             values.forEach(function (danceClass) {
                                 if (danceClass.room.name == roomName) {
                                     var date = getDateByDanceClass(start._d, danceClass);
-                                    console.log(date);
+
                                     events.push({
                                         title: danceClass.style.name,
+                                        level: getLevelDescription(danceClass.level),
                                         start: date.start,
                                         end: date.end,
-                                        allDay: false
+                                        allDay: false,
+                                        canJoin: danceClass.canJoin,
+                                        canRegister: danceClass.canRegister
                                     });
                                 }
                             });
-
                             callback(events);
                         }
                     );
+                },
+                eventRender: function (event, element) {
+                    var ap = "<br/>";
+                    if (event.canRegister) {
+                        ap += '<span class="badge badge-danger">ZAPISY</span>';
+                    }
+                    else {
+                        ap += "<em>" + event.level + "</em>";
+                    }
+                    element.find('.fc-title').append(ap);
                 }
             }
         }
