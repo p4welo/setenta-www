@@ -1,54 +1,22 @@
 <div class="img-header jumbotron team-header"></div>
-<div class="body-cover">
+<div class="body-cover" ng-init="initCalendar()">
     <div class="container main-content staff-content">
         <h2>
             <i class="glyphicon glyphicon-calendar"></i> Grafik
-            <span id="icon-toolbar" class="pull-right icon-toolbar"></span>
         </h2>
 
         <div class="panel panel-default">
             <div class="panel-body">
                 <h4 class="text-center">Duża sala</h4>
-                <div id='calendar'></div>
+                <div id='bigSchedule'></div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h4 class="text-center">Mała sala</h4>
+                <div id='smallSchedule'></div>
             </div>
         </div>
     </div>
 </div>
 
-<script type="text/javascript">
-    $(document).ready(function () {
-
-        $('#calendar').fullCalendar({
-            lang: "pl",
-            defaultView: "agendaWeek",
-            axisFormat: 'H:mm',
-            allDaySlot: false,
-            header: {
-                left:   '',
-                center: '',
-                right:  ''
-            },
-            slotDuration: "00:15:00",
-            minTime: "15:00:00",
-            height: 'auto',
-            columnFormat: {
-                week: 'dddd'
-            },
-            events: [
-                {
-                    title: 'Bachata',
-                    start:  '2014-09-04T17:45:00',
-                    end:  '2014-09-04T18:30:00',
-                    allDay: false
-                },
-                {
-                    title: 'Salsa kubańska',
-                    start:  '2014-09-04T18:45:00',
-                    end:  '2014-09-04T19:30:00',
-                    allDay: false
-                }
-            ]
-        })
-
-    });
-</script>

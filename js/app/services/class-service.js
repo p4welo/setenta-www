@@ -19,4 +19,101 @@ angular.module('setenta-app.services')
                 isArray: true
             }
         })
-    });
+    })
+
+    .service("classService", function (classFactory) {
+
+        var getDateByDanceClass = function (thisMonday, danceClass) {
+            var day = thisMonday.getDate();
+
+            var startResult = new Date(thisMonday);
+            startResult.setDate(day + getDayNoByName(danceClass.day));
+            var startTime = danceClass.startTime.split(':');
+            startResult.setHours(startTime[0]);
+            startResult.setMinutes(startTime[1]);
+            startResult.setSeconds(0);
+
+            var endResult = new Date(thisMonday);
+            endResult.setDate(day + getDayNoByName(danceClass.day));
+            var endTime = danceClass.endTime.split(':');
+            endResult.setHours(endTime[0]);
+            endResult.setMinutes(endTime[1]);
+            endResult.setSeconds(0);
+
+            console.log(danceClass.day + ": " + startResult + "-" + endResult);
+            return {
+                start: startResult,
+                end: endResult
+            };
+        }
+
+        var getDayNoByName = function (day) {
+            if (day == "PN") {
+                return 0;
+            }
+            else if (day == "WT") {
+                return 1;
+            }
+            else if (day == "SR") {
+                return 2;
+            }
+            else if (day == "CZ") {
+                return 3;
+            }
+            else if (day == "PT") {
+                return 4;
+            }
+            else if (day == "SB") {
+                return 5;
+            }
+            else if (day == "ND") {
+                return 6;
+            }
+            else {
+                return -1;
+            }
+        }
+
+        this.getScheduleOptionsByRoom = function (roomName) {
+            return {
+                lang: "pl",
+                defaultView: "agendaWeek",
+                axisFormat: 'H:mm',
+                allDaySlot: false,
+                header: {
+                    left: '',
+                    center: '',
+                    right: ''
+                },
+                slotDuration: "00:15:00",
+                minTime: "15:00:00",
+                height: 'auto',
+                columnFormat: {
+                    week: 'dddd'
+                },
+                events: function (start, end, timezone, callback) {
+
+                    classFactory.findSchedule().$promise.then(
+                        function (values) {
+                            var events = [];
+                            values.forEach(function (danceClass) {
+                                if (danceClass.room.name == roomName) {
+                                    var date = getDateByDanceClass(start._d, danceClass);
+                                    console.log(date);
+                                    events.push({
+                                        title: danceClass.style.name,
+                                        start: date.start,
+                                        end: date.end,
+                                        allDay: false
+                                    });
+                                }
+                            });
+
+                            callback(events);
+                        }
+                    );
+                }
+            }
+        }
+    })
+;

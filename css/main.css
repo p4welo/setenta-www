@@ -777,3 +777,11 @@ a {
 .fc-content {
     text-align: center;
 }
+
+.fc-time-grid-event .fc-bg {
+    opacity: 0;
+}
+
+#loading-bar-spinner {
+    z-index: 9999;
+}
