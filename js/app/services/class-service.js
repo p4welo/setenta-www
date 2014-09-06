@@ -40,7 +40,6 @@ angular.module('setenta-app.services')
             endResult.setMinutes(endTime[1]);
             endResult.setSeconds(0);
 
-            console.log(danceClass.day + ": " + startResult + "-" + endResult);
             return {
                 start: startResult,
                 end: endResult
@@ -92,6 +91,52 @@ angular.module('setenta-app.services')
             }
         }
 
+        var resolveDescription = function (c) {
+            var result = "<h4>" + c.style.name + "</h4>" +
+                "<table>" +
+                "<tr>" +
+                "<td><strong>Instruktor:&nbsp;&nbsp;&nbsp;</strong></td><td>"
+                + c.instructor.firstName;
+            if (c.instructor.lastName != null) {
+                result +=  " " + c.instructor.lastName;
+            }
+            result += "</td></tr>";
+            if (c.level != "") {
+                result += "<tr>" +
+                    "<td><strong>Poziom: </strong></td><td>";
+                if (c.level == 'BEGINNER') {
+                    result += "podstawowy";
+                }
+                else if (c.level == 'INTERMEDIATE') {
+                    result += "średniozaawansowany";
+                }
+                else {
+                    result += "zaawansowany";
+                }
+                result += "</td>" +
+                    "</tr>";
+            }
+            result += "<tr>" +
+                "<td><strong>Sala: </strong></td><td>";
+            if (c.room.name == 'd') {
+                result += "duża";
+            }
+            else {
+                result += "mała";
+            }
+            result += "</td>" +
+                "</tr>";
+            result += "</table>";
+            if (c.canRegister) {
+                result += "<div class='alert-danger alert-popover'>Zbieramy grupę - zapisz się już dziś!</div>"
+            }
+            if (c.canJoin) {
+                result += "<div class='alert-danger alert-popover'>Wolne miejsca - dołącz do grupy!</div>"
+            }
+            console.log(result);
+            return result;
+        };
+
         this.getScheduleOptionsByRoom = function (roomName) {
             return {
                 lang: "pl",
@@ -125,7 +170,8 @@ angular.module('setenta-app.services')
                                         end: date.end,
                                         allDay: false,
                                         canJoin: danceClass.canJoin,
-                                        canRegister: danceClass.canRegister
+                                        canRegister: danceClass.canRegister,
+                                        description: resolveDescription(danceClass)
                                     });
                                 }
                             });
@@ -142,7 +188,13 @@ angular.module('setenta-app.services')
                         ap += "<em>" + event.level + "</em>";
                     }
                     element.find('.fc-title').append(ap);
-//                    element.tooltip({title: "DUPA"});
+                    element.popover({
+                        "trigger": "hover",
+                        "html": true,
+                        "container": "body",
+                        "placement": "top",
+                        "content": event.description
+                    });
                 }
             }
         }
