@@ -614,7 +614,7 @@ html, body {
     z-index: 1040;
 }
 
-.icon-toolbar img {
+.social img {
     float: right;
     height: 30px;
     margin-left: 10px;
@@ -636,7 +636,7 @@ html, body {
     text-decoration: none;
 }
 
-.icon-toolbar img:hover {
+.social img:hover {
     -webkit-transform: rotate(360deg);
     -moz-transform: rotate(360deg);
     -o-transform: rotate(360deg);
