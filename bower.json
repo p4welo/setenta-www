@@ -1,0 +1,17 @@
+{
+    "name": "setenta-www",
+    "version": "2.0.0",
+    "dependencies": {
+        "jquery": "latest",
+        "angular": "latest",
+        "angular-sanitize": "latest",
+        "angular-resource": "latest",
+        "angular-animate": "latest",
+        "angular-ui-router": "latest",
+        "bootstrap": "latest",
+        "font-awesome": "latest",
+        "animate.css": "latest",
+        "moment": "latest",
+        "fullcalendar": "2.1.1"
+    }
+}
