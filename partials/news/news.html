@@ -12,12 +12,24 @@
         <div class="body-content news-content">
             <h2>&nbsp;</h2>
 
-            <h2>
-                <i class="glyphicon glyphicon-fire"></i> Aktualności
-            </h2>
 
             <div class="col-sm-7">
-                <div ng-repeat="new in news | orderBy: startTime" class="repeat-item">
+
+                <h2>
+                    <i class="glyphicon glyphicon-fire"></i>
+                    Aktualności
+
+                     <span class="pull-right">
+						 <div class="input-group">
+                             <input type="text" class="form-control" placeholder="Szukaj..." ng-model="filterText"/>
+                             <span class="input-group-addon">
+                                <i class="fa fa-search"></i>
+                            </span>
+                         </div>
+                     </span>
+                </h2>
+
+                <div ng-repeat="new in news | filter:filterText | orderBy: startTime | limitTo:5" class="repeat-item">
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <legend>
