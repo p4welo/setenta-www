@@ -78,13 +78,13 @@ angular.module('setenta-app.services')
                 return "początkujący";
             }
             else if (level == "INTERMEDIATE") {
-                return "średniozaawansowany";
+                return "średniozaaw.";
             }
             else if (level == "ADVANCED") {
                 return "zaawansowany";
             }
             else if (level == "OPEN") {
-                return "gr. otwarta";
+                return "otwarty";
             }
             else {
                 return "";
@@ -110,8 +110,14 @@ angular.module('setenta-app.services')
                 else if (c.level == 'INTERMEDIATE') {
                     result += "średniozaawansowany";
                 }
-                else {
+                else if (c.level == 'ADVANCED') {
                     result += "zaawansowany";
+                }
+                else if (c.level == 'OPEN') {
+                    result += "otwarty";
+                }
+                else {
+                    result += "";
                 }
                 result += "</td>" +
                     "</tr>";
@@ -150,6 +156,7 @@ angular.module('setenta-app.services')
                 },
                 slotDuration: "00:15:00",
                 minTime: "15:00:00",
+                maxTime: "23:00:00",
                 height: 'auto',
                 columnFormat: {
                     week: 'dddd'
@@ -183,6 +190,9 @@ angular.module('setenta-app.services')
                     var ap = "<br/>";
                     if (event.canRegister) {
                         ap += '<span class="badge badge-danger">ZAPISY</span>';
+                    }
+                    else if (!event.canJoin) {
+                        ap += "<em>" + event.level + "</em><br/><span class='badge badge-error'>BRAK MIEJSC</span>";
                     }
                     else {
                         ap += "<em>" + event.level + "</em>";

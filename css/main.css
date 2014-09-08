@@ -786,6 +786,13 @@ a {
 
 .badge-danger {
     background-color: #d31266;
+}
+
+.badge-error {
+    background-color: #222;
+}
+
+.badge {
     margin-top: 5px;
 }
 
