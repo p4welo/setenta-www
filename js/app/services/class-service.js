@@ -95,10 +95,12 @@ angular.module('setenta-app.services')
             var result = "<h4>" + c.style.name + "</h4>" +
                 "<table>" +
                 "<tr>" +
-                "<td><strong>Instruktor:&nbsp;&nbsp;&nbsp;</strong></td><td>"
-                + c.instructor.firstName;
-            if (c.instructor.lastName != null) {
-                result +=  " " + c.instructor.lastName;
+                "<td><strong>Instruktor:&nbsp;&nbsp;&nbsp;</strong></td><td>";
+            if (c.instructor != null)  {
+                result += c.instructor.firstName;
+                if (c.instructor.lastName != null) {
+                    result +=  " " + c.instructor.lastName;
+                }
             }
             result += "</td></tr>";
             if (c.level != "") {
