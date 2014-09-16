@@ -157,7 +157,7 @@ angular.module('setenta-app.services')
                     right: ''
                 },
                 slotDuration: "00:15:00",
-                minTime: "15:00:00",
+                minTime: "10:00:00",
                 maxTime: "23:00:00",
                 height: 'auto',
                 columnFormat: {
