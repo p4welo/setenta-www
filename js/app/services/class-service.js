@@ -126,7 +126,7 @@ angular.module('setenta-app.services')
             }
             result += "<tr>" +
                 "<td><strong>Sala: </strong></td><td>";
-            if (c.room.name == 'd') {
+            if (c.room.code == 'd') {
                 result += "duża";
             }
             else {
@@ -169,7 +169,7 @@ angular.module('setenta-app.services')
                         function (values) {
                             var events = [];
                             values.forEach(function (danceClass) {
-                                if (danceClass.room.name == roomName) {
+                                if (danceClass.room.code == roomName) {
                                     var date = getDateByDanceClass(start._d, danceClass);
 
                                     events.push({
