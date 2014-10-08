@@ -6,7 +6,7 @@ angular.module('setenta-app', [
     'ngAnimate',
     'ngSanitize',
     'ui.router',
-    'setenta-app.loadingBar',
+    'angular-loading-bar',
     'setenta-app.services',
     'setenta-app.controllers'
 ])

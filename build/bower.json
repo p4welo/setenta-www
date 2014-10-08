@@ -10,6 +10,7 @@
         "angular-ui-router": "latest",
         "bootstrap": "latest",
         "font-awesome": "latest",
+        "angular-loading-bar": "0.5.2",
         "animate.css": "latest",
         "moment": "latest",
         "fullcalendar": "2.1.1",

@@ -803,3 +803,17 @@ a {
 #loading-bar-spinner {
     z-index: 9999;
 }
+
+#loading-bar .bar {
+    background: #F31455;
+}
+
+/* Fancy blur effect */
+#loading-bar .peg {
+    box-shadow: 0 0 10px #F31455, 0 0 5px #F31455;
+}
+
+#loading-bar-spinner .spinner-icon {
+    border-top-color: #F31455;
+    border-left-color: #F31455;
+}
