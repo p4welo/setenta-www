@@ -1,15 +1,11 @@
 define([
-    'services/module'
-], function (module) {
-
-    function getRestUrl(uri) {
-        var SERVER_URL = "http://91.218.78.136/ap/public";
-        return SERVER_URL + uri;
-    }
+    'services/module',
+    'utils'
+], function (module, utils) {
 
     module.factory('newsFactory', function ($resource) {
 
-        var NEWS_LIST_KEY = getRestUrl("/news/list.json");
+        var NEWS_LIST_KEY = utils.getRestUrl("/news/list.json");
 
         return $resource(null, null, {
             find: {

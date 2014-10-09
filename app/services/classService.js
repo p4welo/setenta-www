@@ -1,16 +1,12 @@
 define([
-    'services/module'
-], function (module) {
-
-    function getRestUrl(uri) {
-        var SERVER_URL = "http://91.218.78.136/ap/public";
-        return SERVER_URL + uri;
-    }
+    'services/module',
+    'utils'
+], function (module, utils) {
 
     module.factory('classFactory', function ($resource) {
 
-        var FUTURE_CLASS_LIST_KEY = getRestUrl("/classes/future.json");
-        var FIND_SCHEDULE_KEY = getRestUrl("/classes.json");
+        var FUTURE_CLASS_LIST_KEY = utils.getRestUrl("/classes/future.json");
+        var FIND_SCHEDULE_KEY = utils.getRestUrl("/classes.json");
 
         return $resource(null, null, {
             findFuture: {
