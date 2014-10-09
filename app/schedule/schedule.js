@@ -1,10 +1,11 @@
 define([
     'schedule/module',
     'services/classService',
-    'fullCalendarLang'
+    'fullCalendarLang',
+    'services/actionLogService'
 ], function (module) {
 
-    module.controller('scheduleController', function ($scope, $filter, classFactory, classService) {
+    module.controller('scheduleController', function ($scope, $filter, classFactory, classService, actionLogFactory) {
 
         $scope.initCalendar = function () {
             var bigOptions = classService.getScheduleOptionsByRoom('d');
@@ -13,5 +14,6 @@ define([
             var smallOptions = classService.getScheduleOptionsByRoom('m');
             $('#smallSchedule').fullCalendar(smallOptions)
         }
+        actionLogFactory.actionSchedule();
     });
 });

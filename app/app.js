@@ -10,7 +10,10 @@ define([
     'services/module',
 
     'news/news',
+    'instructors/instructors',
     'schedule/schedule',
+    'prices/prices',
+    'shows/shows',
     'contact/contact'
 ], function () {
 
@@ -22,7 +25,10 @@ define([
         'angular-loading-bar',
         'setenta.services',
         'setenta.news',
+        'setenta.instructors',
+        'setenta.prices',
         'setenta.schedule',
+        'setenta.shows',
         'setenta.contact'
     ])
 
@@ -30,22 +36,11 @@ define([
             $urlRouterProvider.otherwise("/aktualnosci");
 
             $stateProvider
-                .state('instruktorzy', {
-                    url: "/instruktorzy",
-                    templateUrl: "app/instructors/instructors.html"
-                })
-                .state('cennik', {
-                    url: "/cennik",
-                    templateUrl: "app/prices/prices.html"
-                })
                 .state('wynajem', {
                     url: "/wynajem",
                     templateUrl: "app/rent/rent.html"
                 })
-                .state('pokazy', {
-                    url: "/pokazy",
-                    templateUrl: "app/shows/shows.html"
-                })
+
                 .state('praca', {
                     url: "/praca",
                     templateUrl: "app/work/work.html"

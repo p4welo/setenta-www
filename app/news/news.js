@@ -1,12 +1,12 @@
 define([
     'news/module',
     'services/newsService',
-    'services/classService'
+    'services/actionLogService'
 ], function (module) {
 
-    module.controller('newsController', function ($scope, newsFactory, classFactory) {
+    module.controller('newsController', function ($scope, newsFactory, actionLogFactory) {
 
         $scope.news = newsFactory.find();
-//        $scope.futureClass = classFactory.findFuture();
+        actionLogFactory.actionNews();
     });
 });
