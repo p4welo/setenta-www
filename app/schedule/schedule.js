@@ -1,6 +1,10 @@
-angular.module('setenta-app.controllers')
+define([
+    'schedule/module',
+    'services/classService',
+    'fullCalendarLang'
+], function (module) {
 
-    .controller('schedule-ctrl', function ($scope, $filter, classFactory, classService) {
+    module.controller('scheduleController', function ($scope, $filter, classFactory, classService) {
 
         $scope.initCalendar = function () {
             var bigOptions = classService.getScheduleOptionsByRoom('d');
@@ -10,3 +14,4 @@ angular.module('setenta-app.controllers')
             $('#smallSchedule').fullCalendar(smallOptions)
         }
     });
+});

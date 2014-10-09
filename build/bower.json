@@ -7,6 +7,7 @@
         "angular-sanitize": "latest",
         "angular-resource": "latest",
         "angular-animate": "latest",
+        "angular-touch": "latest",
         "angular-ui-router": "latest",
         "bootstrap": "latest",
         "font-awesome": "latest",
@@ -14,6 +15,8 @@
         "animate.css": "latest",
         "moment": "latest",
         "fullcalendar": "2.1.1",
-        "requirejs": "latest"
+        "headjs-notify": "latest",
+        "requirejs": "latest",
+        "requirejs-plugins": "latest"
     }
 }

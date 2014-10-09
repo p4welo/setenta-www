@@ -1,7 +1,12 @@
-angular.module('setenta-app.controllers')
+define([
+    'news/module',
+    'services/newsService',
+    'services/classService'
+], function (module) {
 
-    .controller('news-ctrl', function ($scope, newsFactory, classFactory) {
+    module.controller('newsController', function ($scope, newsFactory, classFactory) {
 
         $scope.news = newsFactory.find();
         $scope.futureClass = classFactory.findFuture();
     });
+});
