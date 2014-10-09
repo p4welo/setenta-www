@@ -7,6 +7,6 @@ define([
     module.controller('newsController', function ($scope, newsFactory, classFactory) {
 
         $scope.news = newsFactory.find();
-        $scope.futureClass = classFactory.findFuture();
+//        $scope.futureClass = classFactory.findFuture();
     });
 });
