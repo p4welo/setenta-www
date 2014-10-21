@@ -3,10 +3,10 @@ define([
     'utils'
 ], function (module, utils) {
 
-    module.factory('classFactory', function ($resource) {
+    module.factory('courseFactory', function ($resource) {
 
-        var FUTURE_CLASS_LIST_KEY = utils.getRestUrl("/classes/future.json");
-        var FIND_SCHEDULE_KEY = utils.getRestUrl("/classes.json");
+        var FUTURE_CLASS_LIST_KEY = utils.getRestUrl("/course/registration.json");
+        var FIND_SCHEDULE_KEY = utils.getRestUrl("/course/list.json");
 
         return $resource(null, null, {
             findFuture: {
@@ -23,7 +23,7 @@ define([
             }
         })
     })
-        .service("classService", function (classFactory) {
+        .service("courseService", function (courseFactory) {
 
             var getDateByDanceClass = function (thisMonday, danceClass) {
                 var day = thisMonday.getDate();
@@ -166,7 +166,7 @@ define([
                     },
                     events: function (start, end, timezone, callback) {
 
-                        classFactory.findSchedule().$promise.then(
+                        courseFactory.findSchedule().$promise.then(
                             function (values) {
                                 var events = [];
                                 values.forEach(function (danceClass) {

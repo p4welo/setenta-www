@@ -29,7 +29,7 @@
                      </span>
                 </h2>
 
-                <div ng-repeat="new in news | filter:filterText | orderBy: startTime | limitTo:5" class="repeat-item">
+                <div ng-repeat="new in news | filter: filterText | orderBy: '-createdAt' | limitTo:5" class="repeat-item">
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <legend>
