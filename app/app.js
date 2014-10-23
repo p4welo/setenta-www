@@ -46,9 +46,9 @@ define([
         })
 
         .controller("navController", function ($scope, $state) {
-            $scope.navigate = function (state) {
-                $(".navbar-collapse").collapse('hide');
-                $state.go(state);
+            $scope.navigate = function (s) {
+//                $(".navbar-collapse").collapse('hide');
+                $state.go(s);
             }
         })
 });
