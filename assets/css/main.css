@@ -817,3 +817,12 @@ a {
     border-top-color: #F31455;
     border-left-color: #F31455;
 }
+
+.team_member .img-circle {
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.team_member:hover .img-circle {
+    border-radius: 0;
+}
