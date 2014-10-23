@@ -44,4 +44,11 @@ define([
                     templateUrl: "app/work/work.html"
                 });
         })
+
+        .controller("navController", function ($scope, $state) {
+            $scope.navigate = function (state) {
+                $(".navbar-collapse").collapse('hide');
+                $state.go(state);
+            }
+        })
 });

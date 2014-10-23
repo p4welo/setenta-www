@@ -57,7 +57,7 @@
         </div>
     </div>
 </section>
-<header id="menu" class="navbar navbar-default navbar-fixed-top" role="navigation">
+<header id="menu" class="navbar navbar-default navbar-fixed-top" role="navigation" ng-controller="navController">
     <nav class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -74,27 +74,27 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul id="main-menu" class="nav navbar-nav navbar-right">
                 <li class="tooltip-link" title="Bądź na bieżąco!" ui-sref-active="active">
-                    <a ui-sref="aktualnosci">
+                    <a ng-click="navigate('aktualnosci')">
                         Aktualności
                     </a>
                 </li>
                 <li ui-sref-active="active">
-                    <a ui-sref="instruktorzy">
+                    <a ng-click="navigate('instruktorzy')">
                         Instruktorzy
                     </a>
                 </li>
                 <li ui-sref-active="active">
-                    <a ui-sref="grafik">
+                    <a ng-click="navigate('grafik')">
                         Grafik
                     </a>
                 </li>
                 <li ui-sref-active="active">
-                    <a ui-sref="cennik">
+                    <a ng-click="navigate('cennik')">
                         Cennik
                     </a>
                 </li>
                 <li ui-sref-active="active">
-                    <a ui-sref="pokazy">
+                    <a ng-click="navigate('pokazy')">
                         Pokazy tańca
                     </a>
                 </li>
@@ -103,7 +103,7 @@
                         Galeria
                     </a>
                 </li>
-                <li ui-sref-active="active">
+                <li ng-click="navigate('active')">
                     <a ui-sref="kontakt">
                         Kontakt
                     </a>
@@ -117,6 +117,13 @@
 
 <script src="vendor/headjs-notify/dist/head.load.min.js" type="text/javascript"></script>
 <script src="assets/js/boot.js" type="text/javascript"></script>
+<!--<script type="text/javascript">-->
+    <!--$(document).ready(function () {-->
+        <!--$(".navbar-nav li a").click(function(event) {-->
+            <!--$(".navbar-collapse").collapse('hide');-->
+        <!--});-->
+    <!--});-->
+<!--</script>-->
 <!--http://ciasteczka.eu/-->
 </body>
 </html>
