@@ -4,6 +4,6 @@ define([
 ], function (module) {
 
     module.controller('showsController', function (actionLogFactory) {
-        actionLogFactory.actionShows();
+//        actionLogFactory.actionShows();
     });
 });

@@ -7,6 +7,6 @@ define([
     module.controller('newsController', function ($scope, newsFactory, actionLogFactory) {
 
         $scope.news = newsFactory.find();
-        actionLogFactory.actionNews();
+//        actionLogFactory.actionNews();
     });
 });

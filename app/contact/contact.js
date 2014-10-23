@@ -6,6 +6,6 @@ define([
 
     module.controller('contactController', function ($scope, actionLogFactory) {
         $scope.mapInit = gmap.init("mapka");
-        actionLogFactory.actionContact();
+//        actionLogFactory.actionContact();
     });
 });

@@ -11,9 +11,6 @@
 
     <title>Szkoła tańca Setenta</title>
 
-    <!--<script src="vendor/pace/pace.js"></script>-->
-    <!--<link href="vendor/pace/themes/green/pace-theme-barber-shop.css" rel="stylesheet" />-->
-
     <link href="vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" media="screen"/>
     <link href="vendor/animate.css/animate.min.css" rel="stylesheet" media="screen"/>
@@ -60,7 +57,7 @@
         </div>
     </div>
 </section>
-<header id="menu" class="navbar navbar-default navbar-fixed-top" role="navigation" ng-controller="navController">
+<header id="menu" class="navbar navbar-default navbar-fixed-top" role="navigation">
     <nav class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -77,31 +74,26 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul id="main-menu" class="nav navbar-nav navbar-right">
                 <li class="tooltip-link" title="Bądź na bieżąco!" ui-sref-active="active">
-                    <!--<a ng-click="navigate('aktualnosci')">-->
                     <a ui-sref="aktualnosci">
                         Aktualności
                     </a>
                 </li>
                 <li ui-sref-active="active">
-                    <!--<a ng-click="navigate('instruktorzy')">-->
                     <a ui-sref="instruktorzy">
                         Instruktorzy
                     </a>
                 </li>
                 <li ui-sref-active="active">
-                    <!--<a ng-click="navigate('grafik')">-->
                     <a ui-sref="grafik">
                         Grafik
                     </a>
                 </li>
                 <li ui-sref-active="active">
-                    <!--<a ng-click="navigate('cennik')">-->
                     <a ui-sref="cennik">
                         Cennik
                     </a>
                 </li>
                 <li ui-sref-active="active">
-                    <!--<a ng-click="navigate('pokazy')">-->
                     <a ui-sref="pokazy">
                         Pokazy tańca
                     </a>
@@ -112,7 +104,6 @@
                     </a>
                 </li>
                 <li ui-sref-active="active">
-                    <!--<a ui-sref="kontakt">-->
                     <a ui-sref="kontakt">
                         Kontakt
                     </a>
@@ -126,15 +117,6 @@
 
 <script src="vendor/headjs-notify/dist/head.load.min.js" type="text/javascript"></script>
 <script src="assets/js/boot.js" type="text/javascript"></script>
-<!--<script type="text/javascript">-->
-    <!--$(document).ready(function () {-->
-        <!--$(".navbar-nav li a").click(function(event) {-->
-            <!--$(".navbar-collapse").collapse('hide');-->
-        <!--});-->
-    <!--});-->
-<!--</script>-->
-<!--http://ciasteczka.eu/-->
-<!--  MouseStats:Begin  -->
 <script type="text/javascript">
     var MouseStats_Commands = MouseStats_Commands ? MouseStats_Commands : [];
     (function () {
@@ -147,6 +129,5 @@
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(mousestats_script);
         } })();
 </script>
-<!--  MouseStats:End  -->
 </body>
 </html>

@@ -14,6 +14,6 @@ define([
             var smallOptions = courseService.getScheduleOptionsByRoom('m');
             $('#smallSchedule').fullCalendar(smallOptions)
         }
-        actionLogFactory.actionSchedule();
+//        actionLogFactory.actionSchedule();
     });
 });
