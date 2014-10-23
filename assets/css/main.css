@@ -821,8 +821,10 @@ a {
 .team_member .img-circle {
     -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
+    opacity: 0.9;
 }
 
 .team_member:hover .img-circle {
     border-radius: 0;
+    opacity: 1;
 }
