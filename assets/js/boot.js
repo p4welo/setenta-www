@@ -14,6 +14,7 @@
                     'ngSanitize': "../vendor/angular-sanitize/angular-sanitize",
                     'ngResource': "../vendor/angular-resource/angular-resource",
                     'uiRouter': "../vendor/angular-ui-router/release/angular-ui-router",
+                    'uiBootstrap': "../vendor/angular-ui-bootstrap/ui-bootstrap-tpls",
                     'ngAnimate': "../vendor/angular-animate/angular-animate",
                     'ngTouch': "../vendor/angular-touch/angular-touch",
                     'loadingBar': "../vendor/angular-loading-bar/build/loading-bar",

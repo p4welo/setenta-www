@@ -1,19 +1,21 @@
 define([
     'uiRouter',
+    'uiBootstrap',
     'ngAnimate',
     'ngSanitize',
     'ngTouch',
     'loadingBar',
 
     'services/module',
-    'services/feedbackService',
 
     'news/news',
     'instructors/instructors',
     'schedule/schedule',
     'prices/prices',
     'shows/shows',
-    'contact/contact'
+    'contact/contact',
+    'index/index'
+
 ], function () {
 
     return angular.module('setenta', [
@@ -21,6 +23,7 @@ define([
         'ngTouch',
         'ngSanitize',
         'ui.router',
+        'ui.bootstrap',
         'angular-loading-bar',
         'setenta.services',
         'setenta.news',
@@ -28,7 +31,8 @@ define([
         'setenta.prices',
         'setenta.schedule',
         'setenta.shows',
-        'setenta.contact'
+        'setenta.contact',
+        'setenta.index'
     ])
 
         .config(function ($stateProvider, $urlRouterProvider) {
@@ -44,31 +48,5 @@ define([
                     url: "/praca",
                     templateUrl: "app/work/work.html"
                 });
-        })
-
-        .controller("feedbackController", function ($scope, feedbackFactory) {
-            $scope.feedback = {};
-
-            $scope.ratings = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-
-            $scope.setRate = function (rate) {
-                $scope.feedback.rate = rate;
-            }
-
-            $scope.select = function (tab) {
-                $scope.feedback.type = tab;
-            }
-
-            $scope.resolveTabCss = function (tab) {
-                return {'active' : tab == $scope.feedback.type};
-            }
-
-            $scope.resolveBtnCss = function (r) {
-                return r==$scope.feedback.rate ? 'btn-setenta' : 'btn-default'
-            }
-
-            $scope.send = function () {
-                feedbackFactory.sendFeedback($scope.feedback);
-            }
         })
 });
