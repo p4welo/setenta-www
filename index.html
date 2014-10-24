@@ -123,40 +123,43 @@
                     <h4 class="modal-title" id="myModalLabel">Zależy nam na Twojej opinii</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Witaj, chcielibyśmy poznać Twoją opinię na temat naszej strony internetowej</p>
+                    <!--<form id="form-feedback" role="form" action="" method="post" ng-submit="send()">-->
+                        <p>Witaj, chcielibyśmy poznać Twoją opinię na temat naszej strony internetowej</p>
 
-                    <p>Na początek, w skali od 0 do 10, jak oceniasz użyteczność naszej strony internetowej?</p>
+                        <p>Na początek, w skali od 0 do 10, jak oceniasz użyteczność naszej strony internetowej?</p>
 
-                    <div class="text-center">
-                        <div class="btn-group">
-                            <button class="btn" ng-class="resolveBtnCss(r)" ng-repeat="r in ratings" ng-click="setRate(r)" ng-bind="r"></button>
+                        <div class="text-center">
+                            <div class="btn-group">
+                                <button class="btn" role="button" ng-class="resolveBtnCss(r)" ng-repeat="r in ratings" ng-click="setRate(r)" ng-bind="r"></button>
+                            </div>
                         </div>
-                    </div>
-                    <p style="margin-top: 20px">Jeśli masz jakieś konkretne uwagi, proszę wybrać kategorię poniżej:</p>
+                        <p style="margin-top: 20px">Jeśli masz jakieś konkretne uwagi, proszę wybrać kategorię
+                            poniżej:</p>
 
-                    <div style="margin-top: 20px">
-                        <ul class="nav nav-pills nav-pills-setenta-inv nav-justified" role="tablist">
-                            <li ng-class="resolveTabCss('problem')">
-                                <a ng-click="select('problem')">Problem</a>
-                            </li>
-                            <li ng-class="resolveTabCss('sugestia')">
-                                <a ng-click="select('sugestia')">Sugestia</a>
-                            </li>
-                            <li ng-class="resolveTabCss('pochwala')">
-                                <a ng-click="select('pochwala')">Pochwała</a>
-                            </li>
-                            <li ng-class="resolveTabCss('inne')">
-                                <a ng-click="select('inne')">Inne</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div style="margin-top: 5px" ng-if="feedback.type!= null">
-                        <textarea class="form-control" rows="3" ng-model="feedback.description"></textarea>
-                    </div>
+                        <div style="margin-top: 20px">
+                            <ul class="nav nav-pills nav-pills-setenta-inv nav-justified" role="tablist">
+                                <li ng-class="resolveTabCss('problem')">
+                                    <a ng-click="select('problem')">Problem</a>
+                                </li>
+                                <li ng-class="resolveTabCss('sugestia')">
+                                    <a ng-click="select('sugestia')">Sugestia</a>
+                                </li>
+                                <li ng-class="resolveTabCss('pochwala')">
+                                    <a ng-click="select('pochwala')">Pochwała</a>
+                                </li>
+                                <li ng-class="resolveTabCss('inne')">
+                                    <a ng-click="select('inne')">Inne</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div style="margin-top: 5px" ng-if="feedback.type!= null">
+                            <textarea class="form-control" rows="3" ng-model="feedback.description"></textarea>
+                        </div>
+                    <!--</form>-->
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Anuluj</button>
-                    <button type="button" class="btn btn-setenta-inv" ng-click="send()">Wyślij</button>
+                    <button type="button" ng-click="send()" class="btn btn-setenta-inv">Wyślij</button>
                 </div>
             </div>
         </div>
