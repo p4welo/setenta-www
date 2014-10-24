@@ -68,7 +68,6 @@ define([
             }
 
             $scope.send = function () {
-//                feedbackFactory.sendFeedback({rate: $scope.feedback.rate, type: $scope.feedback.type, description: $scope.feedback.description});
                 feedbackFactory.sendFeedback($scope.feedback);
             }
         })
