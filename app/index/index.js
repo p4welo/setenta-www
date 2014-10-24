@@ -1,13 +1,17 @@
 define([
     'index/module',
-    'index/modal/feedbackModal'
+    'index/modal/feedbackModal',
+    'services/notificationService'
 ], function (module) {
 
-    module.controller("feedbackController", function ($scope, $modal) {
+    module.controller("feedbackController", function ($scope, $modal, notificationService) {
         $scope.feedbackModal = function () {
-            $modal.open({
+            var modalInstance = $modal.open({
                 templateUrl: 'app/index/modal/feedbackModal.html',
                 controller: "sendFeedbackController"
+            });
+            modalInstance.result.then(function () {
+                notificationService.success("Dziękujemy za opinię");
             });
         }
     })

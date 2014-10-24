@@ -1,12 +1,10 @@
 define([
     'news/module',
-    'services/newsService',
-    'services/actionLogService'
+    'services/newsService'
 ], function (module) {
 
-    module.controller('newsController', function ($scope, newsFactory, actionLogFactory) {
+    module.controller('newsController', function ($scope, newsFactory) {
 
         $scope.news = newsFactory.find();
-//        actionLogFactory.actionNews();
     });
 });
