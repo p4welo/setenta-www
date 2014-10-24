@@ -13,15 +13,27 @@ h1, h2, h3, h4 {
 }
 
 .btn-setenta {
-    color: #ffffff;
-    background-color: #E03B86;
-    border-color: #E03B86;
+    color: #ffffff !important;
+    background-color: #d31266;
+    border-color: #d31266;
 }
 
 .btn-setenta:hover {
     color: #ffffff;
     background-color: #C0045A;
     border-color: #C0045A;
+}
+
+.btn-setenta-inv {
+    color: #ffffff !important;
+    background-color: #0d9696;
+    border-color: #0d9696;
+}
+
+.btn-setenta-inv:hover {
+    color: #ffffff;
+    background-color: #0B8080;
+    border-color: #0B8080;
 }
 
 .shows-content a:hover, a:focus,
@@ -827,4 +839,42 @@ a {
 .team_member:hover .img-circle {
     border-radius: 0;
     opacity: 1;
+}
+
+.nav-pills-setenta > li.active > a,
+.nav-pills-setenta > li.active > a:hover,
+.nav-pills-setenta > li.active > a:focus {
+    /*background-color: #d31266;*/
+    background-color: #c0045a;
+}
+
+.nav-pills-setenta > li > a {
+    color: #c0045a;
+    /*color: #d31266;*/
+    cursor: pointer;
+}
+
+.nav-pills-setenta-inv > li.active > a,
+.nav-pills-setenta-inv > li.active > a:hover,
+.nav-pills-setenta-inv > li.active > a:focus {
+    /*background-color: #d31266;*/
+    background-color: #0d9696;
+}
+
+.nav-pills-setenta-inv > li > a {
+    color: #0d9696;
+    cursor: pointer;
+}
+
+.btn-feedback {
+    position: fixed;
+    bottom: 0;
+    right: 100px;
+    border-radius: 0;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-feedback:hover:after {
+    content: "Wyślij opinię";
 }

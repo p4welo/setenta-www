@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0"/>-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <meta name="description"
           content="Wrocławska szkoła tańca Setenta zaprasza do nowoczesnego studia na zajęcia taneczne! Oferujemy kursy salsy, bachaty, tańca towarzyskiego, użytkowego (disco fox, blues), tańca brzucha, hip-hop, zumba. Dodatkowo zapraszamy najmłodszych na zajęcia dla dzieci - balet, mix dance oraz formacja taneczna."/>
     <meta name="keywords" content="taniec, wrocław, kurs, szkoła, balet, salsa, dance, bachata, ballroom, studenci">
@@ -107,22 +108,75 @@
         </div>
     </nav>
 </header>
+<div class="page" ui-view></div>
+<div ng-controller="feedbackController">
+    <button type="button" class="btn btn-lg btn-setenta-inv btn-feedback" data-toggle="modal" data-target="#myModal">
+        <i class="glyphicon glyphicon-comment"></i>
+    </button>
 
-<div class="angular-view page" ui-view></div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Zależy nam na Twojej opinii</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Witaj, chcielibyśmy poznać Twoją opinię na temat naszej strony internetowej</p>
+
+                    <p>Na początek, w skali od 0 do 10, jak oceniasz użyteczność naszej strony internetowej?</p>
+
+                    <div class="text-center">
+                        <div class="btn-group">
+                            <button class="btn" ng-class="resolveBtnCss(r)" ng-repeat="r in ratings" ng-click="setRate(r)" ng-bind="r"></button>
+                        </div>
+                    </div>
+                    <p style="margin-top: 20px">Jeśli masz jakieś konkretne uwagi, proszę wybrać kategorię poniżej:</p>
+
+                    <div style="margin-top: 20px">
+                        <ul class="nav nav-pills nav-pills-setenta-inv nav-justified" role="tablist">
+                            <li ng-class="resolveTabCss('problem')">
+                                <a ng-click="select('problem')">Problem</a>
+                            </li>
+                            <li ng-class="resolveTabCss('sugestia')">
+                                <a ng-click="select('sugestia')">Sugestia</a>
+                            </li>
+                            <li ng-class="resolveTabCss('pochwala')">
+                                <a ng-click="select('pochwala')">Pochwała</a>
+                            </li>
+                            <li ng-class="resolveTabCss('inne')">
+                                <a ng-click="select('inne')">Inne</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div style="margin-top: 5px" ng-if="feedback.type!= null">
+                        <textarea class="form-control" rows="3" ng-model="feedback.description"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Anuluj</button>
+                    <button type="button" class="btn btn-setenta-inv" ng-click="send()">Wyślij</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script src="vendor/headjs-notify/dist/head.load.min.js" type="text/javascript"></script>
 <script src="assets/js/boot.js" type="text/javascript"></script>
 <script type="text/javascript">
     var MouseStats_Commands = MouseStats_Commands ? MouseStats_Commands : [];
     (function () {
-        if(document.getElementById('MouseStatsTrackingScript') == undefined) {
+        if (document.getElementById('MouseStatsTrackingScript') == undefined) {
             var mousestats_script = document.createElement('script');
             mousestats_script.type = 'text/javascript';
             mousestats_script.id = 'MouseStatsTrackingScript';
-            mousestats_script.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www2') + '.mousestats.com/js/5/2/5279246058155122388.js?' + Math.floor(new Date().getTime()/600000);
+            mousestats_script.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www2') + '.mousestats.com/js/5/2/5279246058155122388.js?' + Math.floor(new Date().getTime() / 600000);
             mousestats_script.async = true;
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(mousestats_script);
-        } })();
+        }
+    })();
 </script>
 </body>
 </html>
