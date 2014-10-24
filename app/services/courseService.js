@@ -100,9 +100,9 @@ define([
                     "<td><strong>Instruktor:&nbsp;&nbsp;&nbsp;</strong></td><td>";
                 if (c.instructor != null) {
                     result += c.instructor.firstName;
-//                    if (c.instructor.lastName != null) {
-//                        result += " " + c.instructor.lastName;
-//                    }
+                    if (c.instructor.lastName != null) {
+                        result += " " + c.instructor.lastName;
+                    }
                 }
                 result += "</td></tr>";
                 if (c.level != "") {
