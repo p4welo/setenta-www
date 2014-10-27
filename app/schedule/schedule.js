@@ -6,14 +6,20 @@ define([
 ], function (module) {
 
     module.controller('scheduleController', function ($scope, $filter, courseFactory, courseService, actionLogFactory) {
+        $scope.courseList = [];
 
         $scope.initCalendar = function () {
-            var bigOptions = courseService.getScheduleOptionsByRoom('d');
-            $('#bigSchedule').fullCalendar(bigOptions)
+            courseFactory.findSchedule().$promise.then(
+                function (result) {
+                    $scope.courseList = result;
 
-            var smallOptions = courseService.getScheduleOptionsByRoom('m');
-            $('#smallSchedule').fullCalendar(smallOptions)
+                    var bigOptions = courseService.getScheduleOptionsByRoom('d', result);
+                    $('#bigSchedule').fullCalendar(bigOptions);
+
+                    var smallOptions = courseService.getScheduleOptionsByRoom('m', result);
+                    $('#smallSchedule').fullCalendar(smallOptions);
+                }
+            )
         }
-//        actionLogFactory.actionSchedule();
     });
 });

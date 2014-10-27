@@ -146,7 +146,7 @@ define([
                 return result;
             };
 
-            this.getScheduleOptionsByRoom = function (roomName) {
+            this.getScheduleOptionsByRoom = function (roomName, courseList) {
                 return {
                     lang: "pl",
                     defaultView: "agendaWeek",
@@ -166,29 +166,25 @@ define([
                     },
                     events: function (start, end, timezone, callback) {
 
-                        courseFactory.findSchedule().$promise.then(
-                            function (values) {
-                                var events = [];
-                                values.forEach(function (danceClass) {
-                                    if (danceClass.room.code == roomName) {
-                                        var date = getDateByDanceClass(start._d, danceClass);
+                        var events = [];
+                        courseList.forEach(function (danceClass) {
+                            if (danceClass.room.code == roomName) {
+                                var date = getDateByDanceClass(start._d, danceClass);
 
-                                        events.push({
-                                            sid: danceClass.sid,
-                                            title: danceClass.style.name,
-                                            level: getLevelDescription(danceClass.level),
-                                            start: date.start,
-                                            end: date.end,
-                                            allDay: false,
-                                            canJoin: danceClass.canJoin,
-                                            canRegister: danceClass.canRegister,
-                                            description: resolveDescription(danceClass)
-                                        });
-                                    }
+                                events.push({
+                                    sid: danceClass.sid,
+                                    title: danceClass.style.name,
+                                    level: getLevelDescription(danceClass.level),
+                                    start: date.start,
+                                    end: date.end,
+                                    allDay: false,
+                                    canJoin: danceClass.canJoin,
+                                    canRegister: danceClass.canRegister,
+                                    description: resolveDescription(danceClass)
                                 });
-                                callback(events);
                             }
-                        );
+                        });
+                        callback(events);
                     },
                     eventRender: function (event, element) {
                         var ap = "<br/><input type='hidden' name='sid' value='" + event.sid + "'>";
