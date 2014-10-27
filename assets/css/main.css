@@ -897,6 +897,10 @@ a {
         padding: 0 !important;
     }
 
+    [ng-cloak].splash {
+        margin-top: 35px;
+    }
+
     #menu {
         top: 35px;
     }
