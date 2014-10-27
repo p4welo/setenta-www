@@ -7,18 +7,61 @@
                 Grafik
             </h2>
 
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <h4 class="text-center">Duża sala</h4>
+            <div class="visible-md-block visible-lg-block">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h4 class="text-center">Duża sala</h4>
 
-                    <div id='bigSchedule'></div>
+                        <div id='bigSchedule'></div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h4 class="text-center">Mała sala</h4>
+
+                        <div id='smallSchedule'></div>
+                    </div>
                 </div>
             </div>
-            <div class="panel panel-default">
+            <div class="panel panel-default visible-sm-block visible-xs-block">
                 <div class="panel-body">
-                    <h4 class="text-center">Mała sala</h4>
+                    <div ng-repeat="d in days">
+                        <p>
+                            <strong>
+                                {{ d | translate }}
+                            </strong>
+                        </p>
+                        <table class="table table-condensed">
+                            <thead>
+                            <tr>
+                                <th>godz</th>
+                                <th>nazwa</th>
+                                <th>poziom</th>
+                                <th>sala</th>
+                                <th>status</th>
+                            </tr>
+                            </thead>
+                            <tbody>
 
-                    <div id='smallSchedule'></div>
+                            <tr ng-repeat="c in courseList | filter : {'day': d}">
+                                <td>
+                                    <span ng-bind="c.startTime"></span>
+                                    -
+                                    <span ng-bind="c.endTime"></span>
+                                </td>
+                                <td ng-bind="c.style.name"></td>
+                                <td>
+                                    {{ c.level | translate }}
+                                </td>
+                                <td ng-bind="c.room.name"></td>
+                                <td class="text-right">
+                                    <span class="badge badge-danger" ng-if="c.canRegister">ZAPISY</span>
+                                    <span class='badge badge-error' ng-if="!c.canRegister && !c.canJoin">BRAK MIEJSC</span>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

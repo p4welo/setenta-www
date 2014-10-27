@@ -17,6 +17,7 @@
                     'uiBootstrap': "../vendor/angular-ui-bootstrap/ui-bootstrap-tpls",
                     'ngAnimate': "../vendor/angular-animate/angular-animate",
                     'ngTouch': "../vendor/angular-touch/angular-touch",
+                    'ngTranslate': "../vendor/angular-translate/angular-translate",
                     'loadingBar': "../vendor/angular-loading-bar/build/loading-bar",
                     'pnotify': "../vendor/pnotify/pnotify.core",
                     'momentJs': '../vendor/moment/moment',

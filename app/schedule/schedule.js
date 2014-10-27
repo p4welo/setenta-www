@@ -2,11 +2,12 @@ define([
     'schedule/module',
     'services/courseService',
     'fullCalendarLang',
-    'services/actionLogService'
+    'services/actionLogService',
 ], function (module) {
 
     module.controller('scheduleController', function ($scope, $filter, courseFactory, courseService, actionLogFactory) {
         $scope.courseList = [];
+        $scope.days = ['PN', 'WT', 'SR', 'CZ', 'PT', 'SB', 'ND'];
 
         $scope.initCalendar = function () {
             courseFactory.findSchedule().$promise.then(
