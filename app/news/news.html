@@ -1,23 +1,24 @@
-<div class="img-header team-header jumbotron">
-    <div class="container">
-        <img src="assets/img/sys/1.png" alt="salsa wrocław"/>
-        <img src="assets/img/sys/2.png" alt="taniec towarzyski wrocław"/>
-        <img src="assets/img/sys/3.png" alt="taniec dzieci wrocław"/>
-        <img src="assets/img/sys/4.png" alt="pierwszy taniec wrocław"/>
+<div class="animated fadeIn">
+    <div class="img-header team-header jumbotron">
+        <div class="container">
+            <img src="assets/img/sys/1.png" alt="salsa wrocław"/>
+            <img src="assets/img/sys/2.png" alt="taniec towarzyski wrocław"/>
+            <img src="assets/img/sys/3.png" alt="taniec dzieci wrocław"/>
+            <img src="assets/img/sys/4.png" alt="pierwszy taniec wrocław"/>
+        </div>
     </div>
-</div>
 
-<div class="body-cover">
-    <div class="container main-content staff-content">
-        <div class="body-content news-content">
-            <h2>&nbsp;</h2>
+    <div class="body-cover">
+        <div class="container main-content staff-content">
+            <div class="body-content news-content">
+                <h2>&nbsp;</h2>
 
 
-            <div class="col-sm-7">
+                <div class="col-sm-7">
 
-                <h2>
-                    <i class="glyphicon glyphicon-fire"></i>
-                    Aktualności
+                    <h2>
+                        <i class="glyphicon glyphicon-fire"></i>
+                        Aktualności
 
                      <span class="col-xs-6 pull-right">
 						 <div class="input-group">
@@ -27,38 +28,40 @@
                             </span>
                          </div>
                      </span>
-                </h2>
+                    </h2>
 
-                <div ng-repeat="new in news | filter: filterText | orderBy: '-createdAt' | limitTo:5" class="repeat-item">
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <legend>
-                                <h4>
-                                    {{new.title | uppercase}}
-                                    <small class="pull-right">{{new.createdAt}}</small>
-                                </h4>
-                            </legend>
-                            <div class="media">
+                    <div ng-repeat="new in news | filter: filterText | orderBy: '-createdAt' | limitTo:5" class="repeat-item">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <legend>
+                                    <h4>
+                                        {{new.title | uppercase}}
+                                        <small class="pull-right">{{new.createdAt}}</small>
+                                    </h4>
+                                </legend>
+                                <div class="media">
                                 <span class="thumbnail">
                                     <img class="media-object" ng-src="assets/{{new.imageSrc}}" alt="{{new.imageAlt}}"/>
                                 </span>
 
-                                <div class="media-body" ng-bind-html="new.content"></div>
+                                    <div class="media-body" ng-bind-html="new.content"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="col-sm-5 text-right">
-                <h2>
-                    <i class="glyphicon glyphicon-gift"></i>
-                    Honorujemy:
-                </h2>
-                <div class="row">
-                    <a target="_blank" href="http://www.oksystem.pl">
-                        <img src="assets/img/oksystem.png"/>
-                    </a>
+                <div class="col-sm-5 text-right">
+                    <h2>
+                        <i class="glyphicon glyphicon-gift"></i>
+                        Honorujemy:
+                    </h2>
+
+                    <div class="row">
+                        <a target="_blank" href="http://www.oksystem.pl">
+                            <img src="assets/img/oksystem.png"/>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
