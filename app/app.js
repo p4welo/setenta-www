@@ -37,16 +37,13 @@ define([
 
         .config(function ($stateProvider, $urlRouterProvider) {
             $urlRouterProvider.otherwise("/aktualnosci");
+        })
 
-            $stateProvider
-                .state('wynajem', {
-                    url: "/wynajem",
-                    templateUrl: "app/rent/rent.html"
-                })
-
-                .state('praca', {
-                    url: "/praca",
-                    templateUrl: "app/work/work.html"
-                });
+        .run(function ($rootScope) {
+            $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+                if (!fromState.abstract) {
+                    $("#navbar-collapsible").collapse('hide');
+                }
+            });
         })
 });
