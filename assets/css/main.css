@@ -450,9 +450,7 @@ html, body {
     left: 0;
     height: 100%;
     width: 100%;
-    /*filter: alpha(opacity=60);*/
-    /*opacity: 0.6;*/
-    background: #222;
+    background: #f5f5f5;
 }
 
 .splash h2 {
@@ -888,8 +886,9 @@ a {
 
 @media (max-width: 768px) {
     .social img {
-        margin-left: 2px;
+        margin-left: 5px;
         height: 25px;
+        margin-top: 5px;
     }
 
     #top-header {
@@ -917,6 +916,10 @@ a {
     .navbar-brand img {
         height: 30px;
     }
+
+    #main-menu a:hover {
+        margin-top: 0px;
+    }
 }
 
 @media (max-width: 330px) {
@@ -926,5 +929,13 @@ a {
 
     #top-header .col-xs-5 {
         width: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    @media (min-width: 551px) {
+        .news-content > .col-sm-7 {
+            padding-top: 140px;
+        }
     }
 }

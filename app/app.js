@@ -42,7 +42,12 @@ define([
         .run(function ($rootScope) {
             $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
                 if (!fromState.abstract) {
-                    $("#navbar-collapsible").collapse('hide');
+                    if ($("#navbar-collapsible").hasClass("in")){
+                        $("#navbar-collapsible").removeClass("in");
+                        $("#navbar-collapsible").style("height", "1px");
+                        $("#nav-toggle-button").addClass("collapsed");
+//                        $("#navbar-collapsible").collapse('hide');
+                    }
                 }
             });
         })
