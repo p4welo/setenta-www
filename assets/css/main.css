@@ -458,6 +458,72 @@ html, body {
     color: white;
 }
 
+#nprogress .spinner {
+    display: block;
+    position: fixed;
+    z-index: 1050;
+    top: 15px;
+    left: 50%;
+    margin-left: -10px;
+}
+
+#nprogress .spinner-icon {
+    width: 20px;
+    height: 20px;
+    border:  solid 2px transparent;
+    border-top-color:  #1bbae1;
+    border-left-color: #1bbae1;
+    border-radius: 10px;
+    -webkit-animation: nprogress-spinner 400ms linear infinite;
+    -moz-animation:    nprogress-spinner 400ms linear infinite;
+    -ms-animation:     nprogress-spinner 400ms linear infinite;
+    -o-animation:      nprogress-spinner 400ms linear infinite;
+    animation:         nprogress-spinner 400ms linear infinite;
+}
+
+@-webkit-keyframes nprogress-spinner {
+    0%   { -webkit-transform: rotate(0deg);   transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+}
+@-moz-keyframes nprogress-spinner {
+    0%   { -moz-transform: rotate(0deg);   transform: rotate(0deg); }
+    100% { -moz-transform: rotate(360deg); transform: rotate(360deg); }
+}
+@-o-keyframes nprogress-spinner {
+    0%   { -o-transform: rotate(0deg);   transform: rotate(0deg); }
+    100% { -o-transform: rotate(360deg); transform: rotate(360deg); }
+}
+@-ms-keyframes nprogress-spinner {
+    0%   { -ms-transform: rotate(0deg);   transform: rotate(0deg); }
+    100% { -ms-transform: rotate(360deg); transform: rotate(360deg); }
+}
+@keyframes nprogress-spinner {
+    0%   { transform: rotate(0deg);   transform: rotate(0deg); }
+    100% { transform: rotate(360deg); transform: rotate(360deg); }
+}
+
+.preloader-spinner {
+    width: 24px;
+    height: 24px;
+    border: 3px solid transparent;
+    border-left-color: #c0045a;
+    border-right-color: #c0045a;
+    border-top-color: #c0045a;
+    border-radius: 50%;
+    -webkit-animation: nprogress-spinner .4s linear infinite;
+    -moz-animation: nprogress-spinner .4s linear infinite;
+    -ms-animation: nprogress-spinner .4s linear infinite;
+    -o-animation: nprogress-spinner .4s linear infinite;
+    animation: nprogress-spinner .4s linear infinite;
+}
+
+.preloader-spinner {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    border-width: 3px;
+}
+
 .copyright-left {
     padding-left: 20px
 }
