@@ -1,9 +1,7 @@
 define([
-    'prices/module',
-    'services/actionLogService'
+    'prices/module'
 ], function (module) {
 
-    module.controller('pricesController', function (actionLogFactory) {
-//        actionLogFactory.actionPriceList();
+    module.controller('pricesController', function () {
     });
 });

@@ -8,6 +8,10 @@ define([
                 url: "/cennik",
                 templateUrl: "app/prices/prices.html",
                 controller: "pricesController"
+            })
+            .state('cennikDruk', {
+                url: "/print",
+                templateUrl: "app/print/print.html"
             });
     });
 });
