@@ -346,7 +346,7 @@ table.table-schedule th {
 
 /* team members */
 .team_member {
-    background: #fff;
+
     padding: 0 0 5px;
     position: relative;
     -webkit-transition: all 0.2s ease-out;
@@ -356,6 +356,7 @@ table.table-schedule th {
 }
 
 .team_member:hover {
+    background: #fff;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
 }
