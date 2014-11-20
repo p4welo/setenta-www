@@ -35,8 +35,9 @@ define([
         'setenta.index'
     ])
 
-        .config(function ($stateProvider, $urlRouterProvider) {
+        .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
             $urlRouterProvider.otherwise("/aktualnosci");
+//            $locationProvider.html5Mode(true);
         })
 
         .run(function ($rootScope) {
