@@ -456,7 +456,10 @@ html, body {
 
 .splash h2 {
     text-align: center;
-    color: white;
+}
+
+.splash h5 {
+    margin-top: 100px;
 }
 
 #nprogress .spinner {
