@@ -1,9 +1,7 @@
 define([
-    'instructors/module',
-    'services/actionLogService'
+    'instructors/module'
 ], function (module) {
 
-    module.controller('instructorsController', function (actionLogFactory) {
-//        actionLogFactory.actionInstructors();
+    module.controller('instructorsController', function () {
     });
 });

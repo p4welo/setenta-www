@@ -474,36 +474,70 @@ html, body {
 #nprogress .spinner-icon {
     width: 20px;
     height: 20px;
-    border:  solid 2px transparent;
-    border-top-color:  #1bbae1;
+    border: solid 2px transparent;
+    border-top-color: #1bbae1;
     border-left-color: #1bbae1;
     border-radius: 10px;
     -webkit-animation: nprogress-spinner 400ms linear infinite;
-    -moz-animation:    nprogress-spinner 400ms linear infinite;
-    -ms-animation:     nprogress-spinner 400ms linear infinite;
-    -o-animation:      nprogress-spinner 400ms linear infinite;
-    animation:         nprogress-spinner 400ms linear infinite;
+    -moz-animation: nprogress-spinner 400ms linear infinite;
+    -ms-animation: nprogress-spinner 400ms linear infinite;
+    -o-animation: nprogress-spinner 400ms linear infinite;
+    animation: nprogress-spinner 400ms linear infinite;
 }
 
 @-webkit-keyframes nprogress-spinner {
-    0%   { -webkit-transform: rotate(0deg);   transform: rotate(0deg); }
-    100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
 }
+
 @-moz-keyframes nprogress-spinner {
-    0%   { -moz-transform: rotate(0deg);   transform: rotate(0deg); }
-    100% { -moz-transform: rotate(360deg); transform: rotate(360deg); }
+    0% {
+        -moz-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -moz-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
 }
+
 @-o-keyframes nprogress-spinner {
-    0%   { -o-transform: rotate(0deg);   transform: rotate(0deg); }
-    100% { -o-transform: rotate(360deg); transform: rotate(360deg); }
+    0% {
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
 }
+
 @-ms-keyframes nprogress-spinner {
-    0%   { -ms-transform: rotate(0deg);   transform: rotate(0deg); }
-    100% { -ms-transform: rotate(360deg); transform: rotate(360deg); }
+    0% {
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
 }
+
 @keyframes nprogress-spinner {
-    0%   { transform: rotate(0deg);   transform: rotate(0deg); }
-    100% { transform: rotate(360deg); transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
 }
 
 .preloader-spinner {
@@ -852,6 +886,8 @@ a {
     background: white;
 }
 
+/*SCHEDULE START*/
+
 .fc-event {
     border-radius: 0;
     border: 1px solid #ffffff;
@@ -863,6 +899,21 @@ a {
     background-color: #237171;
 }
 
+.schedule-icon {
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    color: #D31266;
+}
+
+/*.course-register {*/
+    /*background-color: #65CBCB;*/
+/*}*/
+
+/*.course-ban {*/
+    /*background-color: #046262;*/
+/*}*/
+
 .fc-content {
     text-align: center;
 }
@@ -870,6 +921,8 @@ a {
 .fc-time-grid-event .fc-bg {
     opacity: 0;
 }
+
+/*SCHEDULE END*/
 
 .badge-danger {
     background-color: #d31266;
@@ -1003,9 +1056,10 @@ a {
 }
 
 /*@media (max-width: 767px) {*/
-    /*@media (min-width: 551px) {*/
-        /*.news-content > .col-sm-7 {*/
-            /*padding-top: 140px;*/
-        /*}*/
-    /*}*/
+/*@media (min-width: 551px) {*/
+/*.news-content > .col-sm-7 {*/
+/*padding-top: 140px;*/
 /*}*/
+/*}*/
+/*}*/
+

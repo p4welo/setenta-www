@@ -3,7 +3,7 @@ define([
     'utils'
 ], function (module, utils) {
 
-    module.factory('courseFactory', function ($resource) {
+    module.factory('courseHttpClient', function ($resource) {
 
         var FUTURE_CLASS_LIST_KEY = utils.getRestUrl("/course/registration.json");
         var FIND_SCHEDULE_KEY = utils.getRestUrl("/course/list.json");
@@ -23,7 +23,7 @@ define([
             }
         })
     })
-        .service("courseService", function (courseFactory) {
+        .factory("courseService", function (courseHttpClient) {
 
             var getDateByDanceClass = function (thisMonday, danceClass) {
                 var day = thisMonday.getDate();
@@ -138,75 +138,87 @@ define([
                     "</tr>";
                 result += "</table>";
                 if (c.canRegister) {
-                    result += "<div class='alert-danger alert-popover'>Zbieramy grupę - zapisz się już dziś!</div>"
+                    result += "<div class='alert-danger alert-popover'><i class='fa fa-pencil'></i> ZAPISY</div>"
+                }
+                else if (!c.canJoin) {
+                    result += "<div class='alert-danger alert-popover'><i class='fa fa-ban'></i> BRAK MIEJSC</div>"
                 }
                 if (c.canJoin) {
-                    result += "<div class='alert-danger alert-popover'>Wolne miejsca - dołącz do grupy!</div>"
+                    result += "<div class='alert-danger alert-popover'><i class='fa fa-plug'></i> WOLNE MIEJSCA</div>"
                 }
                 return result;
             };
 
-            this.getScheduleOptionsByRoom = function (roomName, courseList) {
-                return {
-                    lang: "pl",
-                    defaultView: "agendaWeek",
-                    axisFormat: 'H:mm',
-                    allDaySlot: false,
-                    header: {
-                        left: '',
-                        center: '',
-                        right: ''
-                    },
-                    slotDuration: "00:15:00",
-                    minTime: "10:00:00",
-                    maxTime: "23:00:00",
-                    height: 'auto',
-                    columnFormat: {
-                        week: 'dddd'
-                    },
-                    events: function (start, end, timezone, callback) {
+            return {
+                getScheduleOptionsByRoom: function (roomName, courseList) {
+                    return {
+                        lang: "pl",
+                        defaultView: "agendaWeek",
+                        axisFormat: 'H:mm',
+                        allDaySlot: false,
+                        header: {
+                            left: '',
+                            center: '',
+                            right: ''
+                        },
+                        slotDuration: "00:15:00",
+                        minTime: "10:00:00",
+                        maxTime: "23:00:00",
+                        height: 'auto',
+                        columnFormat: {
+                            week: 'dddd'
+                        },
+                        events: function (start, end, timezone, callback) {
 
-                        var events = [];
-                        courseList.forEach(function (danceClass) {
-                            if (danceClass.room.code == roomName) {
-                                var date = getDateByDanceClass(start._d, danceClass);
+                            var events = [];
+                            courseList.forEach(function (danceClass) {
+                                if (danceClass.room.code == roomName) {
+                                    var date = getDateByDanceClass(start._d, danceClass);
 
-                                events.push({
-                                    sid: danceClass.sid,
-                                    title: danceClass.style.name,
-                                    level: getLevelDescription(danceClass.level),
-                                    start: date.start,
-                                    end: date.end,
-                                    allDay: false,
-                                    canJoin: danceClass.canJoin,
-                                    canRegister: danceClass.canRegister,
-                                    description: resolveDescription(danceClass)
-                                });
+                                    events.push({
+                                        sid: danceClass.sid,
+                                        title: danceClass.style.name,
+                                        level: getLevelDescription(danceClass.level),
+                                        start: date.start,
+                                        end: date.end,
+                                        allDay: false,
+                                        canJoin: danceClass.canJoin,
+                                        canRegister: danceClass.canRegister,
+                                        description: resolveDescription(danceClass)
+                                    });
+                                }
+                            });
+                            callback(events);
+                        },
+                        eventRender: function (event, element) {
+                            var ap = "";
+
+                            ap += "<br/><input type='hidden' name='sid' value='" + event.sid + "'>";
+                            if (event.canRegister) {
+                                element.addClass("course-register");
+                                ap += "<span class='schedule-icon'><i class='fa fa-pencil'></i></span>";
+                                ap += '<span class="badge badge-danger">ZAPISY</span>';
                             }
-                        });
-                        callback(events);
-                    },
-                    eventRender: function (event, element) {
-                        var ap = "<br/><input type='hidden' name='sid' value='" + event.sid + "'>";
-                        if (event.canRegister) {
-                            ap += '<span class="badge badge-danger">ZAPISY</span>';
+                            else if (!event.canJoin) {
+                                element.addClass("course-ban");
+                                ap += "<em>" + event.level + "</em><span class='schedule-icon'><i class='fa fa-ban'></i></span>";
+                                ap += "<em>" + event.level + "</em><br/><span class='badge badge-error'>BRAK MIEJSC</span>";
+                            }
+                            else {
+                                ap += "<em>" + event.level + "</em>";
+                            }
+                            element.find('.fc-title').append(ap);
+                            element.popover({
+                                "trigger": "hover",
+                                "html": true,
+                                "container": "body",
+                                "placement": "top",
+                                "content": event.description
+                            });
                         }
-                        else if (!event.canJoin) {
-                            ap += "<em>" + event.level + "</em><br/><span class='badge badge-error'>BRAK MIEJSC</span>";
-                        }
-                        else {
-                            ap += "<em>" + event.level + "</em>";
-                        }
-                        element.find('.fc-title').append(ap);
-                        element.popover({
-                            "trigger": "hover",
-                            "html": true,
-                            "container": "body",
-                            "placement": "top",
-                            "content": event.description
-                        });
                     }
                 }
             }
-        })
+        }
+    )
 });

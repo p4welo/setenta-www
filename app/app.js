@@ -47,7 +47,6 @@ define([
                         $("#navbar-collapsible").removeClass("in");
                         $("#navbar-collapsible").style("height", "1px");
                         $("#nav-toggle-button").addClass("collapsed");
-//                        $("#navbar-collapsible").collapse('hide');
                     }
                 }
             });
